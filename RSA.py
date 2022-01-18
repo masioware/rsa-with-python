@@ -7,7 +7,7 @@ class RSA():
         self.d = 0
 
         # public keys:
-        self.n = self.p * self.q
+        self.n = 0
         self.e = 0
 
     def __message_to_array(self, message):
