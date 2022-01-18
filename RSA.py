@@ -24,9 +24,9 @@ class RSA():
 
     def cypher(self, message):
         message_arr = self.__message_to_array(message)
-        encrypted_map_object = map(self.__cypher_unicode_char, message_arr)
+        *encrypted_message, = map(self.__cypher_unicode_char, message_arr)
 
-        return list(encrypted_map_object)
+        return encrypted_message
 
     def decypher(self, message_array):
         decrypted_message = map(self.__decypher_unicode_char, message_array)
