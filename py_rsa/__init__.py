@@ -10,6 +10,12 @@ class RSA():
         self.n = 0
         self.e = 0
 
+    def set_private_keys(self, p_key, q_key, d_key):
+        self.p, self.q, self.d = p_key, q_key, d_key
+
+    def set_public_keys(self, n_key, e_key):
+        self.n, self.e = n_key, e_key
+
     def __message_to_array(self, message):
         return list(map(ord, message))
 
