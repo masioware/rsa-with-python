@@ -32,14 +32,14 @@ def test_iterable_to_message():
     assert message == "abcdef"
 
 
-def test_cypher_unicode_char():
+def test_cipher_unicode_char():
     r = RSA()
     r.set_public_keys(391, 3)
 
-    char_1 = r._RSA__cypher_unicode_char(97)
-    char_2 = r._RSA__cypher_unicode_char(98)
-    char_3 = r._RSA__cypher_unicode_char(99)
-    char_4 = r._RSA__cypher_unicode_char(100)
+    char_1 = r._RSA__cipher_unicode_char(97)
+    char_2 = r._RSA__cipher_unicode_char(98)
+    char_3 = r._RSA__cipher_unicode_char(99)
+    char_4 = r._RSA__cipher_unicode_char(100)
 
     assert char_1 == 79
     assert char_2 == 55
@@ -47,16 +47,16 @@ def test_cypher_unicode_char():
     assert char_4 == 213
 
 
-def test_decypher_unicode_char():
+def test_decipher_unicode_char():
     r = RSA()
 
     r.d = 235
     r.n = 391
 
-    char_1 = r._RSA__decypher_unicode_char(79)
-    char_2 = r._RSA__decypher_unicode_char(55)
-    char_3 = r._RSA__decypher_unicode_char(228)
-    char_4 = r._RSA__decypher_unicode_char(213)
+    char_1 = r._RSA__decipher_unicode_char(79)
+    char_2 = r._RSA__decipher_unicode_char(55)
+    char_3 = r._RSA__decipher_unicode_char(228)
+    char_4 = r._RSA__decipher_unicode_char(213)
 
     assert char_1 == 97
     assert char_2 == 98
@@ -64,28 +64,28 @@ def test_decypher_unicode_char():
     assert char_4 == 100
 
 
-def test_cypher_message():
+def test_cipher_message():
     r = RSA()
     r.set_public_keys(391, 3)
 
-    encrypted_message_1 = r.cypher("test")
-    encrypted_message_2 = r.cypher("message")
+    encrypted_message_1 = r.cipher("test")
+    encrypted_message_2 = r.cipher("message")
 
     assert encrypted_message_1 == [24, 16, 276, 24]
     assert encrypted_message_2 == [37, 16, 276, 276, 79, 273, 16]
 
 
-def test_decypher_message():
+def test_decipher_message():
     r = RSA()
 
     r.d = 235
     r.n = 391
 
     encrypted_message_1 = [24, 16, 276, 24]
-    message_1 = r.decypher(encrypted_message_1)
+    message_1 = r.decipher(encrypted_message_1)
 
     encrypted_message_2 = [37, 16, 276, 276, 79, 273, 16]
-    message_2 = r.decypher(encrypted_message_2)
+    message_2 = r.decipher(encrypted_message_2)
 
     assert message_1 == "test"
     assert message_2 == "message"

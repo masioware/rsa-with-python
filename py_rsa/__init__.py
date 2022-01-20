@@ -22,18 +22,18 @@ class RSA():
     def __iterable_to_message(self, iterable):
         return "".join(map(chr, iterable))
 
-    def __cypher_unicode_char(self, char):
+    def __cipher_unicode_char(self, char):
         return char ** self.e % self.n
 
-    def __decypher_unicode_char(self, char):
+    def __decipher_unicode_char(self, char):
         return char ** self.d % self.n
 
-    def cypher(self, message):
+    def cipher(self, message):
         message_arr = self.__message_to_array(message)
-        *encrypted_message, = map(self.__cypher_unicode_char, message_arr)
+        *encrypted_message, = map(self.__cipher_unicode_char, message_arr)
 
         return encrypted_message
 
-    def decypher(self, message_array):
-        decrypted_message = map(self.__decypher_unicode_char, message_array)
+    def decipher(self, message_array):
+        decrypted_message = map(self.__decipher_unicode_char, message_array)
         return self.__iterable_to_message(decrypted_message)
