@@ -6,6 +6,6 @@ A simple program for cipher and decipher in RSA cryptosystem
 - Q = 23
 - D = 235
 
-### exaple public keys:
+### example public keys:
 - N = 391
 - E = 3
